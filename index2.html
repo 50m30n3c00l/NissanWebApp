@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Hot Potato AR</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+
+  <script src="js/8frame-0.8.2.min.js"></script>
+  <script src="js/aframe-animation-component-5.1.2.min.js"></script>
+  <script src="js/aframe-extras-4.2.0.min.js"></script>
+  <script src="js/xrextras.js"></script>
+  <script src="//apps.8thwall.com/xrweb?appKey=fyrb4IqkTBLHwY1t8vACNp7ucFBaZI2IPuPILgC9F9SO0DcEKOqQitTjldjs5wGweHCyeX">
+  </script>
+
+  <script src="js/index.js"></script>
+
+</head>
+
+<body>
+
+  <div id="containerNextModel">    
+    <img id="imgPie" src="img/pie_icon.png" onclick='nextModel("pie")' width="20%">
+    <img id="imgSandwitch" src="img/sandwich_icon.png" onclick='nextModel("sandwitch")' width="20%">   
+  </div>
+
+  <!-- If your app only interacts with image targets and not the world, disabling world tracking can
+        improve speed. -->
+  <a-scene id="sceneManager" antialias="true" xrweb tap-place xrextras-almost-there xrextras-loading
+    xrextras-runtime-error xrextras-gesture-detector>
+
+    <a-assets>     
+      <a-asset-item id="car-glb" src="modelsgLTF/Car.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 4 10" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;"></a-camera>
+
+    <a-light type="ambient" intensity="2"></a-light>
+
+    <a-entity id="ground" class="cantap" geometry="primitive: box"
+      material="color: #ffffff; transparent: true; opacity: 0.0" scale="1000 2 1000" position="0 -1 0">
+    </a-entity>
+
+  </a-scene>
+</body>
+
+</html>
