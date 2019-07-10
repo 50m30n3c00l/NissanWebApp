@@ -30,8 +30,15 @@
 
       <!-- We can define assets here to be loaded when A-Frame initializes -->
       <a-assets>
-        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/5ZMAz7_ucTn -->
         <a-asset-item id="carModel" src="car.glb"></a-asset-item>
+		<a-cubemap id="sky">
+			<img src="right.png">
+			<img src="left.png">
+			<img src="top.png">
+			<img src="bottom.png">
+			<img src="front.png">
+			<img src="back.png">
+		</a-cubemap>
       </a-assets>
 
       <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
@@ -52,7 +59,7 @@
 
       <a-light type="ambient" intensity="1"></a-light>
 
-      <a-entity gltf-model="#carModel" class="cantap" hold-drag two-finger-spin pinch-scale scale="0.025 0.025 0.025"></a-entity>
+      <a-entity gltf-model="#carModel" class="cantap" hold-drag two-finger-spin pinch-scale scale="0.025 0.025 0.025" material="envMap: #sky; roughness: 0"></a-entity>
 
       <a-entity
         id="ground"
